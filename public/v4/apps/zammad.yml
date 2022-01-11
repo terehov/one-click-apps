@@ -3,13 +3,11 @@ caproverOneClickApp:
     instructions:
         start: |-
             Zammad is a web-based, open source user support/ticketing solution. For Zammad and a database server like PostgreSQL we recommend at least:
-
             - 2 CPU cores
             - 4 GB of RAM (+4 GB if you want to run Elasticsearch on the same server)
             - For optimal performance up to 40 agents:
             - 4 CPU cores
             - 6 GB of RAM (+6 GB if you want to run Elasticsearch on the same server)
-
         end: >
             Zammad is deployed and available.
              IMPORTANT: It will take up to 5 minutes for Zammad to be ready. Before that, you might see a 502 error page.
@@ -20,7 +18,7 @@ caproverOneClickApp:
     variables:
         - id: $$cap_zammad_VERSION
           label: Zammad Version
-          defaultValue: '5.0.3-22'
+          defaultValue: '5.0.3-23'
           description: Check out their docker page for the valid tags https://hub.docker.com/r/zammad/zammad-docker-compose/tags
           validRegex: /^([^\s^\/])+$/
 
@@ -109,7 +107,7 @@ services:
             MEMCACHED_PORT: 11211
             NGINX_PORT: 8080
             NGINX_SERVER_NAME: _
-            NGINX_SERVER_SCHEME: \$scheme
+            NGINX_SERVER_SCHEME: http
             POSTGRESQL_HOST: srv-captain--$$cap_appname-postgresql
             POSTGRESQL_PORT: 5432
             POSTGRESQL_USER: $$cap_zammad_POSTGRESQL_USER
